@@ -82,6 +82,15 @@
                     The Gibberish
                 </div>
 
+                <div class="jumbotron">
+                    <p class="lead">Register to unleash the power of Gibberish on your own browser!</p>
+                    <hr class="my-4">
+                    <p>It uses magic to work.</p>
+                    <p class="links">
+                        <a class="btn btn-success" href="{{route('register')}}">Just do it</a>
+                    </p>
+                </div>
+
             </div>
         </div>
     </body>
