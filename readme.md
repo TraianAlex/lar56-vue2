@@ -1,4 +1,4 @@
-# Laravel PHP Framework with VUE
+# Laravel PHP Framework with Vee
 
 ## The Gibberish 
 This is vue playground project for random vue things. 
@@ -14,3 +14,5 @@ then,
 and finally ,
 
 `npm run dev` or `npm run watch`
+
+**Have fun**
