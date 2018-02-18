@@ -21,6 +21,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <binding-component></binding-component>
+                                @include('gibberish.partials.another-card')
                             </div>
                         </div>
                     </div>

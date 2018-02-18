@@ -21,10 +21,8 @@ Vue.component('list-component', require('./components/ListComponent.vue'));
 
 const app = new Vue({
     el: '#app',
-    data: function () {
-        return {
+    data: {
             customBackground: false,
-        }
     },
     computed: {
         className: function () {

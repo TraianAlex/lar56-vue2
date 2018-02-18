@@ -13810,10 +13810,8 @@ Vue.component('list-component', __webpack_require__(51));
 
 var app = new Vue({
     el: '#app',
-    data: function data() {
-        return {
-            customBackground: false
-        };
+    data: {
+        customBackground: false
     },
     computed: {
         className: function className() {
@@ -47054,6 +47052,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -47077,11 +47077,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card mb-3" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _vm._v("\n        This is and example of a component\n    ")
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
-        _c("h5", { staticClass: "card-title" }, [
-          _vm._v("This is and example of component")
-        ]),
-        _vm._v(" "),
         _c("p", { staticClass: "card-text" }, [
           _vm._v("Lorem ipsum gibberish. ")
         ])
@@ -47197,7 +47197,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card bg-success text-white" }, [
+  return _c("div", { staticClass: "card mb-3 bg-success text-white" }, [
     _c("div", { staticClass: "card-body" }, [
       _c("h5", { staticClass: "card-title" }, [
         _vm._v("Binding Gibberish message:")
@@ -47327,10 +47327,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({ //TODO: finish the form for adding task in component
-    props: ['newDesc', 'newStatus'],
+/* harmony default export */ __webpack_exports__["default"] = ({
+    //TODO: finish the form for adding task in component
     mounted: function mounted() {
-        console.log('lists-component mounted.');
+        console.log('Lists-component mounted.');
     },
 
     methods: {
@@ -47352,6 +47352,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 description: 'go to sleep',
                 status: 'obvious'
             }]
+            // newDesc: '',
+            // newStatus: ''
         };
     }
 });
@@ -47386,69 +47388,7 @@ var render = function() {
             ]
           )
         })
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c("form", [
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.newDesc,
-                  expression: "newDesc"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "Enter description" },
-              domProps: { value: _vm.newDesc },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.newDesc = $event.target.value
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.newStatus,
-                  expression: "newStatus"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "Status" },
-              domProps: { value: _vm.newStatus },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.newStatus = $event.target.value
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-success",
-              attrs: { type: "submit" },
-              on: { click: _vm.addTask }
-            },
-            [_vm._v("Add task")]
-          )
-        ])
-      ])
+      )
     ])
   ])
 }

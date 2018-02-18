@@ -8,26 +8,25 @@
                         class="badge badge-danger badge-pill">{{task.status}}</span>
                 </li>
             </ul>
-            <div class="card-body">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter description" v-model="newDesc">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Status" v-model="newStatus">
-                    </div>
-                    <button type="submit" class="btn btn-success" @click="addTask">Add task</button>
-                </form>
-            </div>
+            <!--<div class="card-body">-->
+                <!--<form>-->
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" class="form-control" placeholder="Enter description" v-model="newDesc">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" class="form-control" placeholder="Status" v-model="newStatus">-->
+                    <!--</div>-->
+                    <!--<button type="submit" class="btn btn-success" @click="addTask">Add task</button>-->
+                <!--</form>-->
+            <!--</div>-->
         </div>
     </div>
 </template>
 
 <script>
     export default { //TODO: finish the form for adding task in component
-        props: ['newDesc','newStatus'],
         mounted() {
-            console.log('lists-component mounted.');
+            console.log('Lists-component mounted.');
         },
         methods: {
             addTask(){
@@ -51,7 +50,9 @@
                         description: 'go to sleep',
                         status: 'obvious'
                     },
-                ]
+                ],
+                // newDesc: '',
+                // newStatus: ''
             }
         }
     }

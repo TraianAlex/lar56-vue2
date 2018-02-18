@@ -1,5 +1,5 @@
 <template>
-    <div class="card bg-success text-white">
+    <div class="card mb-3 bg-success text-white">
         <div class="card-body">
             <h5 class="card-title">Binding Gibberish message:</h5>
             <div class="alert alert-primary" role="alert">

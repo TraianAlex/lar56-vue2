@@ -1,7 +1,9 @@
 <template>
     <div class="card mb-3">
+        <div class="card-header">
+            This is and example of a component
+        </div>
         <div class="card-body">
-            <h5 class="card-title">This is and example of component</h5>
             <p class="card-text">Lorem ipsum gibberish. </p>
         </div>
     </div>
