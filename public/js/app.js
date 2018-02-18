@@ -13809,7 +13809,17 @@ Vue.component('binding-component', __webpack_require__(48));
 Vue.component('list-component', __webpack_require__(51));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app',
+    data: function data() {
+        return {
+            customBackground: false
+        };
+    },
+    computed: {
+        className: function className() {
+            return this.customBackground ? 'card-body darken' : 'card-body';
+        }
+    }
 });
 
 /***/ }),

@@ -20,5 +20,15 @@ Vue.component('binding-component', require('./components/BindingComponent.vue'))
 Vue.component('list-component', require('./components/ListComponent.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: function () {
+        return {
+            customBackground: false,
+        }
+    },
+    computed: {
+        className: function () {
+            return this.customBackground ? 'card-body darken' : 'card-body'
+        }
+    }
 });
