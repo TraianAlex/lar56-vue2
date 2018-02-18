@@ -1,14 +1,16 @@
 <template>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-        It is a gibberish. But it's in vue!
-        <span class="badge badge-primary badge-pill">Vue</span>
-    </li>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">This is and example of component</h5>
+            <p class="card-text">Lorem ipsum gibberish. </p>
+        </div>
+    </div>
 </template>
 
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.');
+            console.log('Gibberish-component mounted.');
         }
     }
 </script>

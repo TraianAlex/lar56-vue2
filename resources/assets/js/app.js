@@ -16,6 +16,8 @@ window.Vue = require('vue');
  */
 
 Vue.component('gibberish-component', require('./components/GibberishComponent.vue'));
+Vue.component('binding-component', require('./components/BindingComponent.vue'));
+Vue.component('list-component', require('./components/ListComponent.vue'));
 
 const app = new Vue({
     el: '#app'
