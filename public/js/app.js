@@ -47304,12 +47304,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['newDesc', 'newStatus'],
     mounted: function mounted() {
         console.log('lists-component mounted.');
     },
 
+    methods: {
+        addTask: function addTask() {
+            this.tasks.push({ description: this.newDesc, status: this.newStatus });
+            this.newDesc = '';
+            this.newStatus = '';
+        }
+    },
     data: function data() {
         return {
             tasks: [{
@@ -47336,9 +47356,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card bg-primary mb-3 text-white" }, [
     _c("div", { staticClass: "card-body" }, [
-      _c("h5", { staticClass: "card-title text-center" }, [
-        _vm._v("To do list")
-      ]),
+      _vm._m(0),
       _vm._v(" "),
       _c(
         "ul",
@@ -47358,11 +47376,82 @@ var render = function() {
             ]
           )
         })
-      )
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c("form", [
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newDesc,
+                  expression: "newDesc"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Enter description" },
+              domProps: { value: _vm.newDesc },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newDesc = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newStatus,
+                  expression: "newStatus"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Status" },
+              domProps: { value: _vm.newStatus },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newStatus = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success",
+              attrs: { type: "submit" },
+              on: { click: _vm.addTask }
+            },
+            [_vm._v("Add task")]
+          )
+        ])
+      ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h5", { staticClass: "card-title text-center" }, [
+      _c("strong", [_c("i", [_vm._v("To do list")])])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
