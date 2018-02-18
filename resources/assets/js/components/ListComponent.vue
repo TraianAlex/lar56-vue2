@@ -24,7 +24,7 @@
 </template>
 
 <script>
-    export default {
+    export default { //TODO: finish the form for adding task in component
         props: ['newDesc','newStatus'],
         mounted() {
             console.log('lists-component mounted.');
