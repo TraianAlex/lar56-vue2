@@ -8,6 +8,13 @@
                         class="badge badge-danger badge-pill">{{task.status}}</span>
                 </li>
             </ul>
+            <h5 class="card-title text-center mt-3"><strong><i>Incomplete tasks</i></strong></h5>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-warning d-flex justify-content-between align-items-center"
+                    v-for="task in incompletedTasks">{{task.description}}<span
+                        class="badge badge-danger badge-pill">{{task.status}}</span>
+                </li>
+            </ul>
             <!--<div class="card-body">-->
                 <!--<form>-->
                     <!--<div class="form-group">-->
@@ -35,24 +42,42 @@
                 this.newStatus = '';
             }
         },
-        data: function () {
+        data() {
             return {
                 tasks: [
                     {
                         description: 'learn vue',
                         status: 'In progress',
+                        completed: true,
                     },
                     {
                         description: 'eat pizza',
-                        status: 'Ordered'
+                        status: 'Ordered',
+                        completed: false,
                     },
                     {
                         description: 'go to sleep',
-                        status: 'obvious'
+                        status: 'obvious',
+                        completed: true,
+                    },
+                    {
+                        description: 'finish cast',
+                        status: 'obvious',
+                        completed: false,
+                    },
+                    {
+                        description: 'push to github',
+                        status: 'important',
+                        completed: false,
                     },
                 ],
                 // newDesc: '',
                 // newStatus: ''
+            }
+        }, 
+        computed: {
+            incompletedTasks: function () {
+                return this.tasks.filter(task => !task.completed);
             }
         }
     }

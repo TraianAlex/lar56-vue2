@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -18,15 +17,20 @@ window.Vue = require('vue');
 Vue.component('gibberish-component', require('./components/GibberishComponent.vue'));
 Vue.component('binding-component', require('./components/BindingComponent.vue'));
 Vue.component('list-component', require('./components/ListComponent.vue'));
+Vue.component('computing-component', require('./components/ComputingComponent.vue'));
 
 const app = new Vue({
     el: '#app',
     data: {
-            customBackground: false,
+        customBackground: false,
+        message: 'Hello World!'
     },
     computed: {
         className: function () {
             return this.customBackground ? 'card-body darken' : 'card-body'
+        },
+        reversedMessage(){
+            return this.message.split('').reverse().join('');
         }
     }
 });

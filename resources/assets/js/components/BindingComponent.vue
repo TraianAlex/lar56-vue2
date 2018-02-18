@@ -18,7 +18,7 @@
         mounted() {
             console.log('Binding-component mounted.');
         },
-        data: function () {
+        data() {
             return {
                 message: 'Gibberish'
             }

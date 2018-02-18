@@ -13787,7 +13787,6 @@ module.exports = __webpack_require__(43);
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -13807,15 +13806,20 @@ window.Vue = __webpack_require__(36);
 Vue.component('gibberish-component', __webpack_require__(39));
 Vue.component('binding-component', __webpack_require__(48));
 Vue.component('list-component', __webpack_require__(51));
+Vue.component('computing-component', __webpack_require__(54));
 
 var app = new Vue({
     el: '#app',
     data: {
-        customBackground: false
+        customBackground: false,
+        message: 'Hello World!'
     },
     computed: {
         className: function className() {
             return this.customBackground ? 'card-body darken' : 'card-body';
+        },
+        reversedMessage: function reversedMessage() {
+            return this.message.split('').reverse().join('');
         }
     }
 });
@@ -47181,7 +47185,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {
         console.log('Binding-component mounted.');
     },
-
     data: function data() {
         return {
             message: 'Gibberish'
@@ -47326,6 +47329,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     //TODO: finish the form for adding task in component
@@ -47344,17 +47354,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             tasks: [{
                 description: 'learn vue',
-                status: 'In progress'
+                status: 'In progress',
+                completed: true
             }, {
                 description: 'eat pizza',
-                status: 'Ordered'
+                status: 'Ordered',
+                completed: false
             }, {
                 description: 'go to sleep',
-                status: 'obvious'
+                status: 'obvious',
+                completed: true
+            }, {
+                description: 'finish cast',
+                status: 'obvious',
+                completed: false
+            }, {
+                description: 'push to github',
+                status: 'important',
+                completed: false
             }]
             // newDesc: '',
             // newStatus: ''
         };
+    },
+
+    computed: {
+        incompletedTasks: function incompletedTasks() {
+            return this.tasks.filter(function (task) {
+                return !task.completed;
+            });
+        }
     }
 });
 
@@ -47388,6 +47417,28 @@ var render = function() {
             ]
           )
         })
+      ),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "list-group" },
+        _vm._l(_vm.incompletedTasks, function(task) {
+          return _c(
+            "li",
+            {
+              staticClass:
+                "list-group-item list-group-item-warning d-flex justify-content-between align-items-center"
+            },
+            [
+              _vm._v(_vm._s(task.description)),
+              _c("span", { staticClass: "badge badge-danger badge-pill" }, [
+                _vm._v(_vm._s(task.status))
+              ])
+            ]
+          )
+        })
       )
     ])
   ])
@@ -47400,6 +47451,14 @@ var staticRenderFns = [
     return _c("h5", { staticClass: "card-title text-center" }, [
       _c("strong", [_c("i", [_vm._v("To do list")])])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h5", { staticClass: "card-title text-center mt-3" }, [
+      _c("strong", [_c("i", [_vm._v("Incomplete tasks")])])
+    ])
   }
 ]
 render._withStripped = true
@@ -47408,6 +47467,116 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-db8b0450", module.exports)
+  }
+}
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(40)
+/* script */
+var __vue_script__ = __webpack_require__(55)
+/* template */
+var __vue_template__ = __webpack_require__(56)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/ComputingComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-205ee620", Component.options)
+  } else {
+    hotAPI.reload("data-v-205ee620", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 55 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        console.log('Computing-component mounted.');
+    }
+});
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card bg-danger mb-3 text-white" }, [
+    _c("div", { staticClass: "card-body" }, [
+      _c("h5", { staticClass: "card-title" }, [_vm._v("Computed Gibberish")]),
+      _vm._v(" "),
+      _c("p", {
+        staticClass: "card-text",
+        domProps: { textContent: _vm._s(new Date().toLocaleString()) }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "alert alert-secondary", attrs: { role: "alert" } },
+        [
+          _c("strong", [_vm._v("Gua ca camole!")]),
+          _vm._v(" " + _vm._s(this.$parent.reversedMessage) + "\n        ")
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-205ee620", module.exports)
   }
 }
 
