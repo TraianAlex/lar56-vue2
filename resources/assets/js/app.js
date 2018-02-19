@@ -7,6 +7,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import bulma from 'bulma';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -18,6 +19,7 @@ Vue.component('gibberish-component', require('./components/GibberishComponent.vu
 Vue.component('binding-component', require('./components/BindingComponent.vue'));
 Vue.component('task-list', require('./components/TaskList.vue'));
 Vue.component('task', require('./components/Task.vue'));
+Vue.component('message', require('./components/Message.vue'));
 
 Vue.component('computing-component', require('./components/ComputingComponent.vue'));
 

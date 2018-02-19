@@ -15,6 +15,13 @@
                     </div>
                     <div :class="className">
                         <div class="row">
+                            <div class="col-md-12">
+                                <message title="Bulma message" body="Yupi ca yey. Lorem ipsum dolor sit amet."></message>
+                                <message title="Hello universe!" body="ALALALALALALAL HUE HUE HUE"></message>
+                                <message title="Hello universe!" body='blah vlah lbah'></message>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-sm-6">
                                 <gibberish-component></gibberish-component>
                                 <task-list></task-list>
