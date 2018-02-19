@@ -47451,6 +47451,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -47513,39 +47517,51 @@ var render = function() {
     _c("div", { staticClass: "card-body" }, [
       _vm._m(0),
       _vm._v(" "),
-      _c(
-        "ul",
-        { staticClass: "list-group" },
-        _vm._l(_vm.tasks, function(task) {
-          return _c("task", {
-            key: task.id,
-            attrs: { description: task.description, status: task.status },
-            on: {
-              remove: function($event) {
-                _vm.tasks.splice(_vm.index, 1)
-              }
-            }
-          })
-        })
-      ),
+      _vm.tasks.length
+        ? _c(
+            "ul",
+            { staticClass: "list-group" },
+            _vm._l(_vm.tasks, function(task, index) {
+              return _c("task", {
+                key: task.id,
+                attrs: {
+                  index: index,
+                  description: task.description,
+                  status: task.status
+                },
+                on: {
+                  remove: function($event) {
+                    _vm.tasks.splice(task.id, 1)
+                  }
+                }
+              })
+            })
+          )
+        : _c("p", [_vm._v("No tasks left")]),
       _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
-      _c(
-        "ul",
-        { staticClass: "list-group" },
-        _vm._l(_vm.incompletedTasks, function(task) {
-          return _c("task", {
-            key: task.id,
-            attrs: { description: task.description, status: task.status },
-            on: {
-              remove: function($event) {
-                _vm.tasks.splice(_vm.index, 1)
-              }
-            }
-          })
-        })
-      )
+      _vm.tasks.length
+        ? _c(
+            "ul",
+            { staticClass: "list-group" },
+            _vm._l(_vm.incompletedTasks, function(task, index) {
+              return _c("task", {
+                key: task.id,
+                attrs: {
+                  index: index,
+                  description: task.description,
+                  status: task.status
+                },
+                on: {
+                  remove: function($event) {
+                    _vm.incompletedTasks.splice(task.id, 1)
+                  }
+                }
+              })
+            })
+          )
+        : _c("p", [_vm._v("No tasks left")])
     ]),
     _vm._v(" "),
     _c("input", {
