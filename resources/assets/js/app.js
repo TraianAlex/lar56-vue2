@@ -16,7 +16,9 @@ window.Vue = require('vue');
 
 Vue.component('gibberish-component', require('./components/GibberishComponent.vue'));
 Vue.component('binding-component', require('./components/BindingComponent.vue'));
-Vue.component('list-component', require('./components/ListComponent.vue'));
+Vue.component('task-list', require('./components/TaskList.vue'));
+Vue.component('task', require('./components/Task.vue'));
+
 Vue.component('computing-component', require('./components/ComputingComponent.vue'));
 
 const app = new Vue({

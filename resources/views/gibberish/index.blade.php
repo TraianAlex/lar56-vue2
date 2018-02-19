@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <gibberish-component></gibberish-component>
-                                <list-component></list-component>
+                                <task-list></task-list>
                             </div>
                             <div class="col-sm-6">
                                 <binding-component></binding-component>
