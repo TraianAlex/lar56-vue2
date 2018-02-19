@@ -17,12 +17,13 @@ import bulma from 'bulma';
 
 Vue.component('gibberish-component', require('./components/GibberishComponent.vue'));
 Vue.component('binding-component', require('./components/BindingComponent.vue'));
+Vue.component('computing-component', require('./components/ComputingComponent.vue'));
 Vue.component('task-list', require('./components/TaskList.vue'));
 Vue.component('task', require('./components/Task.vue'));
 Vue.component('message', require('./components/Message.vue'));
 Vue.component('modal', require('./components/Modal.vue'));
-
-Vue.component('computing-component', require('./components/ComputingComponent.vue'));
+Vue.component('tabs', require('./components/Tabs.vue'));
+Vue.component('tab', require('./components/Tab.vue'));
 
 const app = new Vue({
     el: '#app',

@@ -5,6 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
+                    
                     <div class="card-header d-flex justify-content-between align-items-center">The G-machine
                         <div class="form-check form-inline">
                             <div class="custom-control custom-checkbox mr-sm-2">
@@ -19,24 +20,48 @@
                             </div>
                         </div>
                     </div>
-                    <div :class="className">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <message title="The Guacamole news"
-                                         body="'Yupi ca yey. Lorem ipsum dolor sit amet. Gibber spreads around the world!' - Today,  by me."></message>
+
+                    <tabs>
+
+                        <tab name="Playground" :selected="true">
+                            <div :class="className">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <gibberish-component></gibberish-component>
+                                        <task-list></task-list>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <binding-component></binding-component>
+                                        <computing-component></computing-component>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <gibberish-component></gibberish-component>
-                                <task-list></task-list>
+                        </tab>
+
+                        <tab name="About us">
+                            <div :class="className">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <message title="The Guacamole news"
+                                                 body="'Yupi ca yey. Lorem ipsum dolor sit amet. Gibber spreads around the world!' - Today,  by me."></message>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                <binding-component></binding-component>
-                                <computing-component></computing-component>
+                        </tab>
+
+                        <tab name="Our vision">
+                            <div :class="className">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <message title="The Guacamole news"
+                                                 body="'Yupi ca yey. Lorem ipsum dolor sit amet. Gibber spreads around the world!' - Today,  by me."></message>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </tab>
+
+                    </tabs>
+
                 </div>
             </div>
         </div>
