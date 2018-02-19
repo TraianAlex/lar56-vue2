@@ -14,7 +14,7 @@
                             </div>
                             <div class="custom-control">
                                 <button class="btn btn-warning" @click="showModal = true">
-                                    Show Modal
+                                    Inspiration click
                                 </button>
                             </div>
                         </div>
@@ -22,10 +22,8 @@
                     <div :class="className">
                         <div class="row">
                             <div class="col-md-12">
-                                <message title="Bulma message"
-                                         body="Yupi ca yey. Lorem ipsum dolor sit amet."></message>
-                                <message title="Hello universe!" body="ALALALALALALAL HUE HUE HUE"></message>
-                                <message title="Hello universe!" body='blah vlah lbah'></message>
+                                <message title="The Guacamole news"
+                                         body="'Yupi ca yey. Lorem ipsum dolor sit amet. Gibber spreads around the world!' - Today,  by me."></message>
                             </div>
                         </div>
                         <div class="row">
@@ -43,5 +41,5 @@
             </div>
         </div>
     </div>
-    <modal content="Giberrish cannot be forgotten." v-show="showModal" @close="showModal = false"></modal>
+    <modal v-show="showModal" @close="showModal = false"><p>Gibberish cannot be forgotten!</p></modal>
 @endsection

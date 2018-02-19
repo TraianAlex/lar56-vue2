@@ -48517,7 +48517,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['content'],
     mounted: function mounted() {
         console.log('Message mounted');
     }
@@ -48535,9 +48534,7 @@ var render = function() {
     _c("div", { staticClass: "modal-background" }),
     _vm._v(" "),
     _c("div", { staticClass: "modal-content" }, [
-      _c("div", { staticClass: "box" }, [
-        _c("p", [_vm._v(_vm._s(_vm.content))])
-      ])
+      _c("div", { staticClass: "box" }, [_vm._t("default")], 2)
     ]),
     _vm._v(" "),
     _c("button", {

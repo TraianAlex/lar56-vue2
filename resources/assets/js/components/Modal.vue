@@ -3,7 +3,7 @@
         <div class="modal-background"></div>
         <div class="modal-content">
             <div class="box">
-                <p>{{content}}</p>
+                <slot></slot>
             </div>
         </div>
         <button class="modal-close" @click="$emit('close')"></button>
@@ -12,7 +12,6 @@
 
 <script>
     export default {
-        props: ['content'],
         mounted() {
             console.log('Message mounted');
         },
