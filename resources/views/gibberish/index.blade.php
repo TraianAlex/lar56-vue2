@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    
+
                     <div class="card-header d-flex justify-content-between align-items-center">The G-machine
                         <div class="form-check form-inline">
                             <div class="custom-control custom-checkbox mr-sm-2">
