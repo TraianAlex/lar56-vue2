@@ -38,18 +38,7 @@
                             </div>
                         </tab>
 
-                        <tab name="About us">
-                            <div :class="className">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <message title="The Guacamole news"
-                                                 body="'Yupi ca yey. Lorem ipsum dolor sit amet. Gibber spreads around the world!' - Today,  by me."></message>
-                                    </div>
-                                </div>
-                            </div>
-                        </tab>
-
-                        <tab name="Our vision">
+                        <tab name="The Gibber News">
                             <div :class="className">
                                 <div class="row">
                                     <div class="col-md-12">
