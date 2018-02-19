@@ -1,12 +1,14 @@
 <template>
     <div class="card bg-primary mb-3 text-white">
         <div class="card-body">
+
             <h5 class="card-title text-center"><strong><i>To do list</i></strong></h5>
             <ul class="list-group">
                 <task v-for="task in tasks"
                       :key="task.id"
                       :description="task.description"
                       :status="task.status"
+                      v-on:remove="tasks.splice(index, 1)"
                 />
             </ul>
             <h5 class="card-title text-center mt-3"><strong><i>Incomplete tasks</i></strong></h5>
@@ -15,26 +17,33 @@
                       :key="task.id"
                       :description="task.description"
                       :status="task.status"
+                      v-on:remove="tasks.splice(index, 1)"
                 />
             </ul>
         </div>
+        <input
+                class="form-control mx-auto w-75 mb-4"
+                v-model="newTaskDescription"
+                v-on:keyup.enter="addTask"
+                placeholder="Add a task"
+        >
     </div>
 </template>
 
 <script>
-    export default { //TODO: finish the form for adding task in component
+    export default {
         mounted() {
             console.log('Lists-component mounted.');
         },
         methods: {
             addTask() {
-                this.tasks.push({description: this.newDesc, status: this.newStatus});
-                this.newDesc = '';
-                this.newStatus = '';
+                this.tasks.push({description: this.newTaskDescription, status: 'new', completed: false});
+                this.newTaskDescription = '';
             }
         },
         data() {
             return {
+                newTaskDescription: '',
                 tasks: [
                     {
                         description: 'learn vue',

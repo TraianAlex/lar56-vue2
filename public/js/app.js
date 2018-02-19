@@ -47442,22 +47442,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    //TODO: finish the form for adding task in component
     mounted: function mounted() {
         console.log('Lists-component mounted.');
     },
 
     methods: {
         addTask: function addTask() {
-            this.tasks.push({ description: this.newDesc, status: this.newStatus });
-            this.newDesc = '';
-            this.newStatus = '';
+            this.tasks.push({ description: this.newTaskDescription, status: 'new', completed: false });
+            this.newTaskDescription = '';
         }
     },
     data: function data() {
         return {
+            newTaskDescription: '',
             tasks: [{
                 description: 'learn vue',
                 status: 'In progress',
@@ -47511,7 +47519,12 @@ var render = function() {
         _vm._l(_vm.tasks, function(task) {
           return _c("task", {
             key: task.id,
-            attrs: { description: task.description, status: task.status }
+            attrs: { description: task.description, status: task.status },
+            on: {
+              remove: function($event) {
+                _vm.tasks.splice(_vm.index, 1)
+              }
+            }
           })
         })
       ),
@@ -47524,11 +47537,47 @@ var render = function() {
         _vm._l(_vm.incompletedTasks, function(task) {
           return _c("task", {
             key: task.id,
-            attrs: { description: task.description, status: task.status }
+            attrs: { description: task.description, status: task.status },
+            on: {
+              remove: function($event) {
+                _vm.tasks.splice(_vm.index, 1)
+              }
+            }
           })
         })
       )
-    ])
+    ]),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.newTaskDescription,
+          expression: "newTaskDescription"
+        }
+      ],
+      staticClass: "form-control mx-auto w-75 mb-4",
+      attrs: { placeholder: "Add a task" },
+      domProps: { value: _vm.newTaskDescription },
+      on: {
+        keyup: function($event) {
+          if (
+            !("button" in $event) &&
+            _vm._k($event.keyCode, "enter", 13, $event.key)
+          ) {
+            return null
+          }
+          _vm.addTask($event)
+        },
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.newTaskDescription = $event.target.value
+        }
+      }
+    })
   ])
 }
 var staticRenderFns = [
@@ -47643,7 +47692,19 @@ var render = function() {
       _vm._v("\n    " + _vm._s(_vm.description)),
       _c("span", { staticClass: "badge badge-danger badge-pill" }, [
         _vm._v(_vm._s(_vm.status))
-      ])
+      ]),
+      _c(
+        "button",
+        {
+          staticClass: "btn",
+          on: {
+            click: function($event) {
+              _vm.$emit("remove")
+            }
+          }
+        },
+        [_vm._v("X")]
+      )
     ]
   )
 }
