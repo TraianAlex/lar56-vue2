@@ -1,5 +1,5 @@
 <template>
-    <article class="message mb-2" v-show="isVisible">
+    <article class="message mb-3" v-show="isVisible">
         <div class="message-header">
             <p>{{title}}</p>
             <button class="delete" aria-label="delete" @click="isVisible = false;"></button>

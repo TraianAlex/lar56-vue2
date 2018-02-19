@@ -20,6 +20,7 @@ Vue.component('binding-component', require('./components/BindingComponent.vue'))
 Vue.component('task-list', require('./components/TaskList.vue'));
 Vue.component('task', require('./components/Task.vue'));
 Vue.component('message', require('./components/Message.vue'));
+Vue.component('modal', require('./components/Modal.vue'));
 
 Vue.component('computing-component', require('./components/ComputingComponent.vue'));
 
@@ -27,7 +28,8 @@ const app = new Vue({
     el: '#app',
     data: {
         customBackground: false,
-        message: 'Hello World!'
+        message: 'Hello World!',
+        showModal: false
     },
     computed: {
         className: function () {
