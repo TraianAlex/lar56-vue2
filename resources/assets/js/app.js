@@ -24,13 +24,15 @@ Vue.component('message', require('./components/Message.vue'));
 Vue.component('modal', require('./components/Modal.vue'));
 Vue.component('tabs', require('./components/Tabs.vue'));
 Vue.component('tab', require('./components/Tab.vue'));
+Vue.component('coupon', require('./components/Coupon.vue'));
 
 const app = new Vue({
     el: '#app',
     data: {
         customBackground: false,
         message: 'Hello World!',
-        showModal: false
+        showModal: false,
+        couponApplied: false,
     },
     computed: {
         className: function () {
@@ -38,6 +40,11 @@ const app = new Vue({
         },
         reversedMessage(){
             return this.message.split('').reverse().join('');
+        }
+    },
+    methods:{
+        onCouponApplied(){
+            this.couponApplied = true;
         }
     }
 });

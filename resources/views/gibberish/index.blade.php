@@ -5,50 +5,17 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-
-                    <div class="card-header d-flex justify-content-between align-items-center">The G-machine
-                        <div class="form-check form-inline">
-                            <div class="custom-control custom-checkbox mr-sm-2">
-                                <input type="checkbox" class="custom-control-input" id="colorize"
-                                       @change="customBackground = ! customBackground">
-                                <label class="custom-control-label" for="colorize">Change background</label>
-                            </div>
-                            <div class="custom-control">
-                                <button class="btn btn-warning" @click="showModal = true">
-                                    Inspiration click
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
+                    @include('gibberish.partials.header')
                     <tabs>
-
                         <tab name="Playground" :selected="true">
-                            <div :class="className">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <gibberish-component></gibberish-component>
-                                        <task-list></task-list>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <binding-component></binding-component>
-                                        <computing-component></computing-component>
-                                    </div>
-                                </div>
-                            </div>
+                            @include('gibberish.partials.playground')
                         </tab>
-
                         <tab name="The Gibber News">
-                            <div :class="className">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <message title="The Guacamole news"
-                                                 body="'Yupi ca yey. Lorem ipsum dolor sit amet. Gibber spreads around the world!' - Today,  by me."></message>
-                                    </div>
-                                </div>
-                            </div>
+                           @include('gibberish.partials.news')
                         </tab>
-
+                        <tab name="Coupon">
+                           @include('gibberish.partials.coupon')
+                        </tab>
                     </tabs>
 
                 </div>
