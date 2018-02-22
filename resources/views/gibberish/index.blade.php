@@ -22,5 +22,6 @@
             </div>
         </div>
     </div>
+    {{-- Modal does not have a specific place in html, becasue it displays as a 'layer' over some basic layout --}}
     <modal v-show="showModal" @close="showModal = false"><p>Gibberish cannot be forgotten!</p></modal>
 @endsection

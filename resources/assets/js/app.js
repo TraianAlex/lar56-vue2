@@ -9,6 +9,20 @@ require('./bootstrap');
 window.Vue = require('vue');
 import bulma from 'bulma';
 
+window.Event = new class {
+  constructor(){
+      this.event = new Vue();
+  }
+
+  fire(event, data = null){
+    this.event.$emit(event, data);
+  }
+
+  listen(event, callback){
+      this.event.$on(event, callback);
+  }
+};
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -46,5 +60,8 @@ const app = new Vue({
         onCouponApplied(){
             this.couponApplied = true;
         }
+    },
+    created(){
+        Event.listen('applied', ()=>alert('handling it !'))
     }
 });
