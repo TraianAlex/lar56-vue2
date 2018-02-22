@@ -48556,6 +48556,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -48600,7 +48602,16 @@ var render = function() {
         2
       ),
       _vm._v(" "),
-      _c("footer", { staticClass: "modal-card-foot" }, [_vm._t("footer")], 2)
+      _c(
+        "footer",
+        { staticClass: "modal-card-foot" },
+        [
+          _vm._t("footer", [
+            _c("button", { staticClass: "button" }, [_vm._v("Kay")])
+          ])
+        ],
+        2
+      )
     ])
   ])
 }

@@ -14,7 +14,9 @@
                 </slot>
             </section>
             <footer class="modal-card-foot">
-               <slot name="footer"></slot>
+               <slot name="footer">
+                   <button class="button">Kay</button>
+               </slot>
             </footer>
         </div>
     </div>
