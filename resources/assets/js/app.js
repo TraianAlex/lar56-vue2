@@ -39,6 +39,7 @@ Vue.component('modal', require('./components/Modal.vue'));
 Vue.component('tabs', require('./components/Tabs.vue'));
 Vue.component('tab', require('./components/Tab.vue'));
 Vue.component('coupon', require('./components/Coupon.vue'));
+Vue.component('progress-view', require('./components/Progress.vue'));
 
 const app = new Vue({
     el: '#app',
