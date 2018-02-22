@@ -23,5 +23,8 @@
         </div>
     </div>
     {{-- Modal does not have a specific place in html, becasue it displays as a 'layer' over some basic layout --}}
-    <modal v-show="showModal" @close="showModal = false"><p>Gibberish cannot be forgotten!</p></modal>
+    <modal v-show="showModal" @close="showModal = false">
+        <template slot="header">Named slot lol xd</template>
+        Default slot
+    </modal>
 @endsection

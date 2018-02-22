@@ -48546,10 +48546,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
-        console.log('Message mounted');
+        console.log('Modal mounted');
     }
 });
 
@@ -48564,18 +48574,34 @@ var render = function() {
   return _c("div", { staticClass: "modal is-active" }, [
     _c("div", { staticClass: "modal-background" }),
     _vm._v(" "),
-    _c("div", { staticClass: "modal-content" }, [
-      _c("div", { staticClass: "box" }, [_vm._t("default")], 2)
-    ]),
-    _vm._v(" "),
-    _c("button", {
-      staticClass: "modal-close",
-      on: {
-        click: function($event) {
-          _vm.$emit("close")
-        }
-      }
-    })
+    _c("div", { staticClass: "modal-card" }, [
+      _c("header", { staticClass: "modal-card-head" }, [
+        _c("p", { staticClass: "modal-card-title" }, [_vm._t("header")], 2),
+        _vm._v(" "),
+        _c("button", {
+          staticClass: "delete",
+          attrs: { "aria-label": "close" },
+          on: {
+            click: function($event) {
+              _vm.$emit("close")
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c(
+        "section",
+        { staticClass: "modal-card-body" },
+        [
+          _vm._t("default", [
+            _vm._v("\n                Default Content here.\n            ")
+          ])
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("footer", { staticClass: "modal-card-foot" }, [_vm._t("footer")], 2)
+    ])
   ])
 }
 var staticRenderFns = []

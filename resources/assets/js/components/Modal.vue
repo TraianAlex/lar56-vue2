@@ -1,19 +1,29 @@
 <template>
     <div class="modal is-active">
         <div class="modal-background"></div>
-        <div class="modal-content">
-            <div class="box">
-                <slot></slot>
-            </div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">
+                    <slot name="header"></slot>
+                </p>
+                <button class="delete" aria-label="close" @click="$emit('close')"></button>
+            </header>
+            <section class="modal-card-body">
+                <slot>
+                    Default Content here.
+                </slot>
+            </section>
+            <footer class="modal-card-foot">
+               <slot name="footer"></slot>
+            </footer>
         </div>
-        <button class="modal-close" @click="$emit('close')"></button>
     </div>
 </template>
 
 <script>
     export default {
         mounted() {
-            console.log('Message mounted');
+            console.log('Modal mounted');
         },
     }
 </script>
