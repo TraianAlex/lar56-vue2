@@ -15,6 +15,9 @@ class CreateGibberishesTable extends Migration
     {
         Schema::create('gibberishes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('author');
+            $table->string('cite');
+            $table->date('date')->nullable();
             $table->timestamps();
         });
     }
