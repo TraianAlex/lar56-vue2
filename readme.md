@@ -13,6 +13,11 @@ This is vue playground project for random vue things. I followed  [The Laracast]
       yourself and share your work online with others. You can even link 
       this project in issues of that one - we can always make it easier for ourselves 
       to learn and develop. 
+      
+      
+![Screenshot](screen.png)
+
+
 ## Checking out
 If you want to install this project locally, clone it anf follow:  Run -- `composer install` --- then,
 ---`npm install`---, and finally ----`npm run dev`--- or ---`npm run watch`---.
