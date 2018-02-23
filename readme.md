@@ -23,8 +23,12 @@ I recommend using [Valet](https://laravel.com/docs/5.6/valet) or [Vagrant](https
  fastest to develop projects locally on a small scale.
 
 **Have fun and**
-**keep in mind this is vue project mostly.**
+**keep in mind this is vue project mostly. :+1:**
 
-Piotr Jankiewicz,
+Piotr Jankiewicz :+1:
+
+
+Junior Fullstack Developer,
+
 
 piotrjankiewicz02@gmail.com
