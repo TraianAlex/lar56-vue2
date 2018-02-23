@@ -4,8 +4,8 @@
 This is vue playground project for random vue things. I followed  [The Laracast](https://laracasts.com/series/learn-vue-2-step-by-step/)
  series on Vue 2.0. After every episode I tried to implement the given
   knowledge with humor and in non-sense convention. This project is literally
-   stuffed with non-sense Vue components, they serve no purpose but just
-    to how they work themselves. You invite you to clone this project 
+   stuffed with non-sense Vue components. They serve no purpose but to just
+    show how they work. You invite you to clone this project 
     and see yourself how Vue can be easy and powerful. 
     
    Obviously,
