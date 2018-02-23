@@ -1,4 +1,4 @@
-# Laravel PHP Framework with Vue
+# Laravel PHP Framework with Vue :shipit:
 
 ## The Gibberish 
 This is vue playground project for random vue things. I followed  [The Laracast](https://laracasts.com/series/learn-vue-2-step-by-step/)
