@@ -7,7 +7,7 @@
                 <div class="card">
                     @include('gibberish.partials.header')
                     <tabs>
-                        <tab name="Playground" :selected="true">
+                        <tab name="Playground">
                             @include('gibberish.partials.playground')
                         </tab>
                         <tab name="The Gibber News">
@@ -21,7 +21,7 @@
                             @include('gibberish.partials.progress')
                         </tab>
 
-                        <tab name="Async">
+                        <tab name="Async" selected="true">
                             @include('gibberish.partials.axios')
                         </tab>
                     </tabs>

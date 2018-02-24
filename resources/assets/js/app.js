@@ -40,7 +40,8 @@ Vue.component('tabs', require('./components/Tabs.vue'));
 Vue.component('tab', require('./components/Tab.vue'));
 Vue.component('coupon', require('./components/Coupon.vue'));
 Vue.component('progress-view', require('./components/Progress.vue'));
-Vue.component('gibberish-table', require('./components/GibberishTable'));
+Vue.component('gibberish-table', require('./components/GibberishTable.vue'));
+Vue.component('create-form', require('./components/CreateForm.vue'));
 
 const app = new Vue({
     el: '#app',

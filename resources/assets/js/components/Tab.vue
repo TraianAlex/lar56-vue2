@@ -8,7 +8,6 @@
     export default {
         mounted() {
             this.isActive = this.selected;
-            console.log('Tabs mounted');
         },
         props: {
             name: {

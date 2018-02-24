@@ -1,8 +1,14 @@
 <div :class="className">
     <div class="row">
         <div class="col-md-12">
-            <h1>Fetched from database async</h1>
-            <gibberish-table></gibberish-table>
+            <tabs :centered="true">
+                <tab name="All">
+                    <gibberish-table></gibberish-table>
+                </tab>
+                <tab name="Create" selected="true">
+                    <create-form></create-form>
+                </tab>
+            </tabs>
         </div>
     </div>
 </div>

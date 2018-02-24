@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="tabs">
+        <div :class="className">
             <ul>
                 <li v-for="tab in tabs"
                     :class="{'is-active': tab.isActive}"
@@ -20,6 +20,7 @@
 
 <script>
     export default {
+        props: ['centered'],
         data() {
             return {
                 tabs: []
@@ -33,6 +34,11 @@
                 this.tabs.forEach((tab)=>{
                     tab.isActive = (tab.name === selectedTab.name);
                 });
+            }
+        },
+        computed: {
+            className(){
+                return (this.centered === true) ? 'tabs is-centered' : 'tabs';
             }
         }
     }
