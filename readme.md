@@ -22,7 +22,7 @@ This is vue playground project for random vue things. I followed  [The Laracast]
 If you want to install this project locally, clone it anf follow:  Run -- `composer install` --- then,
 ---`npm install`---, and finally ----`npm run dev`--- or ---`npm run watch`---.
 
-Remember to migrate the database by `php artisan migrate`
+Remember to migrate the database with seeds `php artisan migrate --seed`
 
 I recommend using [Valet](https://laravel.com/docs/5.6/valet) or [Vagrant](https://laravel.com/docs/5.6/homestead), as these tools are the easiest to learn and the
  fastest to develop projects locally on a small scale.
