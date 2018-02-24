@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class GibberishController extends Controller
 {
+    public function playground()
+    {
+        return view('gibberish.playground');
+    }
+
     /**
      * Display a listing of the resource.
      *
