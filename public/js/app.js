@@ -49438,8 +49438,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['method', 'url'],
     data: function data() {
-        return {};
+        return {
+            author: '',
+            cite: '',
+            date: ''
+        };
+    },
+
+    methods: {
+        onSubmit: function onSubmit() {
+            axios.post(this.url, {
+                author: this.author,
+                cite: this.cite,
+                date: this.date
+            });
+        }
     }
 });
 
@@ -49451,34 +49466,53 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("article", { staticClass: "message is-primary" }, [
-      _c("div", { staticClass: "message-header" }, [
-        _c("p", [
-          _vm._v("Create new gibberish quote from someone extremely stupid")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "message-body" }, [
-        _c("form", { staticClass: "mt-3" }, [
+  return _c("article", { staticClass: "message is-primary" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "message-body" }, [
+      _c(
+        "form",
+        {
+          staticClass: "mt-3",
+          attrs: { method: _vm.method, src: _vm.url },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              _vm.onSubmit($event)
+            }
+          }
+        },
+        [
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "author" } }, [
               _vm._v("Gibberish Author")
             ]),
             _vm._v(" "),
             _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.author,
+                  expression: "author"
+                }
+              ],
               staticClass: "form-control",
               attrs: {
                 type: "text",
                 id: "author",
                 "aria-describedby": "gibberishAuthor",
-                placeholder: "for ex. Batman (Brolo Waynolo)"
+                placeholder: "for ex. Batman (Brolo Waynolo)",
+                name: "author"
+              },
+              domProps: { value: _vm.author },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.author = $event.target.value
+                }
               }
             })
           ]),
@@ -49487,11 +49521,29 @@ var staticRenderFns = [
             _c("label", { attrs: { for: "cite" } }, [_vm._v("Password")]),
             _vm._v(" "),
             _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.cite,
+                  expression: "cite"
+                }
+              ],
               staticClass: "form-control",
               attrs: {
                 type: "text",
                 id: "cite",
-                placeholder: "Never loot a gibbet."
+                placeholder: "Never loot a gibbet.",
+                name: "cite"
+              },
+              domProps: { value: _vm.cite },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.cite = $event.target.value
+                }
               }
             })
           ]),
@@ -49500,8 +49552,30 @@ var staticRenderFns = [
             _c("label", { attrs: { for: "date" } }, [_vm._v("Password")]),
             _vm._v(" "),
             _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.date,
+                  expression: "date"
+                }
+              ],
               staticClass: "form-control",
-              attrs: { type: "date", id: "date", placeholder: "1667-02-02" }
+              attrs: {
+                type: "date",
+                id: "date",
+                placeholder: "1667-02-02",
+                name: "date"
+              },
+              domProps: { value: _vm.date },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.date = $event.target.value
+                }
+              }
             })
           ]),
           _vm._v(" "),
@@ -49510,7 +49584,19 @@ var staticRenderFns = [
             { staticClass: "btn btn-primary", attrs: { type: "submit" } },
             [_vm._v("Submit")]
           )
-        ])
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "message-header" }, [
+      _c("p", [
+        _vm._v("Create new gibberish quote from someone extremely stupid")
       ])
     ])
   }
