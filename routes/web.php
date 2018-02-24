@@ -19,3 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/gibberish-playground', 'GibberishController@playground')->name('gibberish.playground')->middleware('auth');
+Route::resource('gibberish', 'GibberishController',['except'=>['create','edit']])->middleware('web'); // this should have an API middleware, but for this project I don't need to implement any API
+
