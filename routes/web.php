@@ -18,4 +18,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/gibberish', 'GibberishController@index')->name('gibberish');
+Route::get('/gibberish-playground', 'GibberishController@playground')->name('gibberish.playground')->middleware('auth');

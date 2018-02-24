@@ -16,7 +16,7 @@
                         @endif
 
                         <h5 class="card-title">You are logged in!</h5>
-                        <a href="{{ route('gibberish') }}" class="btn btn-primary">Go gibber somewhere!</a>
+                        <a href="{{ route('gibberish.playground') }}" class="btn btn-primary">Go gibber somewhere!</a>
                     </div>
 
 

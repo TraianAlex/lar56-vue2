@@ -20,6 +20,10 @@
                         <tab name="Progress Page">
                             @include('gibberish.partials.progress')
                         </tab>
+
+                        <tab name="Async">
+                            @include('gibberish.partials.axios')
+                        </tab>
                     </tabs>
 
                 </div>
