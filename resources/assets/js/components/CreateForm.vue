@@ -8,15 +8,15 @@
                 <div class="form-group">
                     <label for="author">Gibberish Author</label>
                     <input type="text" class="form-control" id="author" aria-describedby="gibberishAuthor"
-                           placeholder="for ex. Batman (Brolo Waynolo)" v-model="author" name="author">
+                           placeholder="for ex. Batman (Brolo Waynolo)" v-model="author" name="author" required>
                 </div>
                 <div class="form-group">
                     <label for="cite">Password</label>
-                    <input type="text" class="form-control" id="cite" placeholder="Never loot a gibbet." v-model="cite" name="cite">
+                    <input type="text" class="form-control" id="cite" placeholder="Never loot a gibbet." v-model="cite" name="cite" required>
                 </div>
                 <div class="form-group">
                     <label for="date">Password</label>
-                    <input type="date" class="form-control" id="date" placeholder="1667-02-02" v-model="date" name="date">
+                    <input type="date" class="form-control" id="date" placeholder="1667-02-02" v-model="date" name="date" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

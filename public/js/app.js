@@ -49503,7 +49503,8 @@ var render = function() {
                 id: "author",
                 "aria-describedby": "gibberishAuthor",
                 placeholder: "for ex. Batman (Brolo Waynolo)",
-                name: "author"
+                name: "author",
+                required: ""
               },
               domProps: { value: _vm.author },
               on: {
@@ -49534,7 +49535,8 @@ var render = function() {
                 type: "text",
                 id: "cite",
                 placeholder: "Never loot a gibbet.",
-                name: "cite"
+                name: "cite",
+                required: ""
               },
               domProps: { value: _vm.cite },
               on: {
@@ -49565,7 +49567,8 @@ var render = function() {
                 type: "date",
                 id: "date",
                 placeholder: "1667-02-02",
-                name: "date"
+                name: "date",
+                required: ""
               },
               domProps: { value: _vm.date },
               on: {
