@@ -49702,6 +49702,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_errors__ = __webpack_require__(90);
 //
 //
 //
@@ -49732,6 +49733,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['method', 'url'],
@@ -49739,12 +49744,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             author: '',
             cite: '',
-            date: ''
+            date: '',
+            errors: new __WEBPACK_IMPORTED_MODULE_0__modules_errors__["a" /* default */]()
         };
     },
 
     methods: {
         onSubmit: function onSubmit() {
+            var _this = this;
+
             axios.post(this.url, {
                 author: this.author,
                 cite: this.cite,
@@ -49752,7 +49760,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).then(function (response) {
                 return alert('Gibberish Created!');
             }).catch(function (error) {
-                return alert(error.message);
+                return _this.errors.record(error.response.data);
             });
         }
     }
@@ -49802,9 +49810,7 @@ var render = function() {
                 type: "text",
                 id: "author",
                 "aria-describedby": "gibberishAuthor",
-                placeholder: "for ex. Batman (Brolo Waynolo)",
-                name: "author",
-                required: ""
+                placeholder: "for ex. Batman (Brolo Waynolo)"
               },
               domProps: { value: _vm.author },
               on: {
@@ -49815,6 +49821,11 @@ var render = function() {
                   _vm.author = $event.target.value
                 }
               }
+            }),
+            _vm._v(" "),
+            _c("span", {
+              staticClass: "help is-danger",
+              domProps: { textContent: _vm._s(_vm.errors.get("author")) }
             })
           ]),
           _vm._v(" "),
@@ -49834,9 +49845,7 @@ var render = function() {
               attrs: {
                 type: "text",
                 id: "cite",
-                placeholder: "Never loot a gibbet.",
-                name: "cite",
-                required: ""
+                placeholder: "Never loot a gibbet."
               },
               domProps: { value: _vm.cite },
               on: {
@@ -49847,6 +49856,11 @@ var render = function() {
                   _vm.cite = $event.target.value
                 }
               }
+            }),
+            _vm._v(" "),
+            _c("span", {
+              staticClass: "help is-danger",
+              domProps: { textContent: _vm._s(_vm.errors.get("cite")) }
             })
           ]),
           _vm._v(" "),
@@ -49863,13 +49877,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: {
-                type: "date",
-                id: "date",
-                placeholder: "1667-02-02",
-                name: "date",
-                required: ""
-              },
+              attrs: { type: "date", id: "date", placeholder: "1667-02-02" },
               domProps: { value: _vm.date },
               on: {
                 input: function($event) {
@@ -49879,6 +49887,11 @@ var render = function() {
                   _vm.date = $event.target.value
                 }
               }
+            }),
+            _vm._v(" "),
+            _c("span", {
+              staticClass: "help is-danger",
+              domProps: { textContent: _vm._s(_vm.errors.get("date")) }
             })
           ]),
           _vm._v(" "),
@@ -49918,6 +49931,43 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 89 */,
+/* 90 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Errors = function () {
+   function Errors() {
+      _classCallCheck(this, Errors);
+
+      this.errors = {};
+   }
+
+   _createClass(Errors, [{
+      key: 'get',
+      value: function get(field) {
+         if (this.errors[field]) {
+            return this.errors[field][0];
+         }
+         return '';
+      }
+   }, {
+      key: 'record',
+      value: function record(errors) {
+         this.errors = errors;
+      }
+   }]);
+
+   return Errors;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (Errors);
 
 /***/ })
 /******/ ]);

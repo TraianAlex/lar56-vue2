@@ -8,17 +8,20 @@
                 <div class="form-group">
                     <label for="author">Gibberish Author</label>
                     <input type="text" class="form-control" id="author" aria-describedby="gibberishAuthor"
-                           placeholder="for ex. Batman (Brolo Waynolo)" v-model="author" name="author" required>
+                           placeholder="for ex. Batman (Brolo Waynolo)" v-model="author">
+                    <span class="help is-danger" v-text="errors.get('author')"></span>
                 </div>
                 <div class="form-group">
                     <label for="cite">Password</label>
-                    <input type="text" class="form-control" id="cite" placeholder="Never loot a gibbet." v-model="cite"
-                           name="cite" required>
+                    <input type="text" class="form-control" id="cite" placeholder="Never loot a gibbet." v-model="cite">
+                    <span class="help is-danger" v-text="errors.get('cite')"></span>
+
                 </div>
                 <div class="form-group">
                     <label for="date">Password</label>
-                    <input type="date" class="form-control" id="date" placeholder="1667-02-02" v-model="date"
-                           name="date" required>
+                    <input type="date" class="form-control" id="date" placeholder="1667-02-02" v-model="date">
+                    <span class="help is-danger" v-text="errors.get('date')"></span>
+
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
@@ -29,6 +32,7 @@
 </template>
 
 <script>
+    import Errors from './../modules/errors'
     export default {
         props: ['method', 'url'],
         data() {
@@ -36,6 +40,7 @@
                 author: '',
                 cite: '',
                 date: '',
+                errors: new Errors()
             }
         },
         methods: {
@@ -46,7 +51,7 @@
                     date: this.date
                 })
                     .then(response => alert('Gibberish Created!'))
-                    .catch(error => alert(error.message));
+                    .catch(error => this.errors.record(error.response.data));
             }
         }
     }
