@@ -3,32 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Gibberish;
+use App\Http\Requests\GibberishRequest;
 use Illuminate\Http\Request;
 
 class GibberishController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function playground()
     {
         return view('gibberish.playground');
     }
 
+
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function index()
     {
         return Gibberish::all();
     }
 
+
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param GibberishRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+    public function store(GibberishRequest $request)
     {
         $gibberish =  Gibberish::create($request->all());
 
@@ -36,35 +38,32 @@ class GibberishController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Gibberish  $gibberish
-     * @return \Illuminate\Http\Response
+     * @param Gibberish $gibberish
+     * @return Gibberish
      */
     public function show(Gibberish $gibberish)
     {
         return $gibberish;
     }
 
+
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Gibberish  $gibberish
-     * @return \Illuminate\Http\Response
+     * @param GibberishRequest $request
+     * @param Gibberish $gibberish
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, Gibberish $gibberish)
+    public function update(GibberishRequest $request, Gibberish $gibberish)
     {
         $gibberish->udpate($request->all());
 
         return response()->json($gibberish, 200); // 200 -standard success
     }
 
+
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Gibberish  $gibberish
-     * @return \Illuminate\Http\Response
+     * @param Gibberish $gibberish
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
      */
     public function destroy(Gibberish $gibberish)
     {
