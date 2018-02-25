@@ -49739,6 +49739,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -49834,7 +49859,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "cite" } }, [_vm._v("Password")]),
+            _c("label", { attrs: { for: "cite" } }, [_vm._v("Cite")]),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -49872,7 +49897,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "date" } }, [_vm._v("Password")]),
+            _c("label", { attrs: { for: "date" } }, [_vm._v("Data")]),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -49915,7 +49940,7 @@ var render = function() {
               staticClass: "btn btn-primary",
               attrs: { type: "submit", disabled: _vm.form.errors.any() }
             },
-            [_vm._v("Submit")]
+            [_vm._v("Submit\n            ")]
           )
         ]
       )
