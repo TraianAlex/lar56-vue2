@@ -32,9 +32,12 @@ class GibberishController extends Controller
      */
     public function store(GibberishRequest $request)
     {
-        $gibberish =  Gibberish::create($request->all());
+        $gibberish = Gibberish::create($request->all());
 
-        return response()->json($gibberish, 201); // 201 - object created
+        return response()->json([
+            'object' => $gibberish,
+            'message' => 'Giberrish created!'
+        ], 201); // 201 - object created
     }
 
     /**

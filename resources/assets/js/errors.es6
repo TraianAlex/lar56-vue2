@@ -16,7 +16,8 @@ export default class Errors {
     }
 
     clear(field){
-        delete this.errors[field];
+        if(field) delete this.errors[field];
+        this.errrors = {};
     }
 
     has(field){

@@ -6,7 +6,7 @@
                     <gibberish-table></gibberish-table>
                 </tab>
                 <tab name="Create" selected="true">
-                    <create-form method="POST" url="/gibberish"></create-form>
+                    <create-form method="post" url="/gibberish"></create-form>
                 </tab>
             </tabs>
         </div>

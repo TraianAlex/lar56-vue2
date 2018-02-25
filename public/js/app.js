@@ -49702,7 +49702,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__errors_es6__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__form_es6__ = __webpack_require__(92);
 //
 //
 //
@@ -49746,30 +49746,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ['method', 'url'],
     data: function data() {
         return {
-            author: '',
-            cite: '',
-            date: '',
-            errors: new __WEBPACK_IMPORTED_MODULE_0__errors_es6__["a" /* default */]()
+            form: new __WEBPACK_IMPORTED_MODULE_0__form_es6__["a" /* default */]({
+                author: '',
+                cite: '',
+                date: ''
+            })
         };
     },
 
     methods: {
         onSubmit: function onSubmit() {
-            var _this = this;
-
-            axios.post(this.url, {
-                author: this.author,
-                cite: this.cite,
-                date: this.date
-            }).then(this.onSuccess).catch(function (error) {
-                _this.errors.record(error.response.data.errors);
-            });
-        },
-        onSuccess: function onSuccess(response) {
-            alert(response.data.message);
-            this.author = '';
-            this.cite = '';
-            this.date = '';
+            this.form.submit(this.method, this.url);
         }
     }
 });
@@ -49798,7 +49785,7 @@ var render = function() {
               _vm.onSubmit($event)
             },
             keydown: function($event) {
-              _vm.errors.clear($event.target.name)
+              _vm.form.errors.clear($event.target.name)
             }
           }
         },
@@ -49813,8 +49800,8 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.author,
-                  expression: "author"
+                  value: _vm.form.author,
+                  expression: "form.author"
                 }
               ],
               staticClass: "form-control",
@@ -49825,21 +49812,23 @@ var render = function() {
                 placeholder: "for ex. Batman (Brolo Waynolo)",
                 name: "author"
               },
-              domProps: { value: _vm.author },
+              domProps: { value: _vm.form.author },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.author = $event.target.value
+                  _vm.$set(_vm.form, "author", $event.target.value)
                 }
               }
             }),
             _vm._v(" "),
-            _vm.errors.has("author")
+            _vm.form.errors.has("author")
               ? _c("span", {
                   staticClass: "help is-danger",
-                  domProps: { textContent: _vm._s(_vm.errors.get("author")) }
+                  domProps: {
+                    textContent: _vm._s(_vm.form.errors.get("author"))
+                  }
                 })
               : _vm._e()
           ]),
@@ -49852,8 +49841,8 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.cite,
-                  expression: "cite"
+                  value: _vm.form.cite,
+                  expression: "form.cite"
                 }
               ],
               staticClass: "form-control",
@@ -49863,21 +49852,21 @@ var render = function() {
                 placeholder: "Never loot a gibbet.",
                 name: "cite"
               },
-              domProps: { value: _vm.cite },
+              domProps: { value: _vm.form.cite },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.cite = $event.target.value
+                  _vm.$set(_vm.form, "cite", $event.target.value)
                 }
               }
             }),
             _vm._v(" "),
-            _vm.errors.has("cite")
+            _vm.form.errors.has("cite")
               ? _c("span", {
                   staticClass: "help is-danger",
-                  domProps: { textContent: _vm._s(_vm.errors.get("cite")) }
+                  domProps: { textContent: _vm._s(_vm.form.errors.get("cite")) }
                 })
               : _vm._e()
           ]),
@@ -49890,8 +49879,8 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.date,
-                  expression: "date"
+                  value: _vm.form.date,
+                  expression: "form.date"
                 }
               ],
               staticClass: "form-control",
@@ -49901,21 +49890,21 @@ var render = function() {
                 placeholder: "1667-02-02",
                 name: "date"
               },
-              domProps: { value: _vm.date },
+              domProps: { value: _vm.form.date },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.date = $event.target.value
+                  _vm.$set(_vm.form, "date", $event.target.value)
                 }
               }
             }),
             _vm._v(" "),
-            _vm.errors.has("date")
+            _vm.form.errors.has("date")
               ? _c("span", {
                   staticClass: "help is-danger",
-                  domProps: { textContent: _vm._s(_vm.errors.get("date")) }
+                  domProps: { textContent: _vm._s(_vm.form.errors.get("date")) }
                 })
               : _vm._e()
           ]),
@@ -49924,7 +49913,7 @@ var render = function() {
             "button",
             {
               staticClass: "btn btn-primary",
-              attrs: { type: "submit", disabled: _vm.errors.any() }
+              attrs: { type: "submit", disabled: _vm.form.errors.any() }
             },
             [_vm._v("Submit")]
           )
@@ -49984,7 +49973,8 @@ class Errors {
     }
 
     clear(field){
-        delete this.errors[field];
+        if(field) delete this.errors[field];
+        this.errrors = {};
     }
 
     has(field){
@@ -49995,6 +49985,54 @@ class Errors {
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Errors;
+
+
+/***/ }),
+/* 92 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__errors_es6__ = __webpack_require__(91);
+
+
+class Form {
+    constructor(data) {
+        this.originalData = data;
+        for (let field in data) {
+            this[field] = data[field];
+        }
+        this.errors = new __WEBPACK_IMPORTED_MODULE_0__errors_es6__["a" /* default */]()
+    }
+    data(){
+        let data = Object.assign({},this);
+        delete data.originalData;
+        delete data.errors;
+
+        return data;
+    }
+
+    reset() {
+        for(let field in this.originalData){
+            this[field]='';
+        }
+    }
+
+    submit(type, url){
+        axios[type](url, this.data())
+            .then(this.onSuccess.bind(this))
+            .catch(this.onFail.bind(this));
+    }
+
+    onSuccess(response){
+        alert(response.data.message);
+        this.errors.clear();
+    }
+
+    onFail(error){
+        this.errors.record(error.response.data.errors);
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Form;
 
 
 /***/ })
