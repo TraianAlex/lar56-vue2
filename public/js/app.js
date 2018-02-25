@@ -49736,6 +49736,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -49757,11 +49761,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 author: this.author,
                 cite: this.cite,
                 date: this.date
-            }).then(function (response) {
-                return alert('Gibberish Created!');
-            }).catch(function (error) {
+            }).then(this.onSuccess).catch(function (error) {
                 _this.errors.record(error.response.data.errors);
             });
+        },
+        onSuccess: function onSuccess(response) {
+            alert(response.data.message);
+            this.author = '';
+            this.cite = '';
+            this.date = '';
         }
     }
 });
@@ -49795,6 +49803,21 @@ var Errors = function () {
       value: function record(errors) {
          this.errors = errors;
       }
+   }, {
+      key: 'clear',
+      value: function clear(field) {
+         delete this.errors[field];
+      }
+   }, {
+      key: 'has',
+      value: function has(field) {
+         return this.errors.hasOwnProperty(field);
+      }
+   }, {
+      key: 'any',
+      value: function any() {
+         return Object.keys(this.errors).length > 0;
+      }
    }]);
 
    return Errors;
@@ -49823,6 +49846,9 @@ var render = function() {
             submit: function($event) {
               $event.preventDefault()
               _vm.onSubmit($event)
+            },
+            keydown: function($event) {
+              _vm.errors.clear($event.target.name)
             }
           }
         },
@@ -49846,7 +49872,8 @@ var render = function() {
                 type: "text",
                 id: "author",
                 "aria-describedby": "gibberishAuthor",
-                placeholder: "for ex. Batman (Brolo Waynolo)"
+                placeholder: "for ex. Batman (Brolo Waynolo)",
+                name: "author"
               },
               domProps: { value: _vm.author },
               on: {
@@ -49859,10 +49886,12 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            _c("span", {
-              staticClass: "help is-danger",
-              domProps: { textContent: _vm._s(_vm.errors.get("author")) }
-            })
+            _vm.errors.has("author")
+              ? _c("span", {
+                  staticClass: "help is-danger",
+                  domProps: { textContent: _vm._s(_vm.errors.get("author")) }
+                })
+              : _vm._e()
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
@@ -49881,7 +49910,8 @@ var render = function() {
               attrs: {
                 type: "text",
                 id: "cite",
-                placeholder: "Never loot a gibbet."
+                placeholder: "Never loot a gibbet.",
+                name: "cite"
               },
               domProps: { value: _vm.cite },
               on: {
@@ -49894,10 +49924,12 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            _c("span", {
-              staticClass: "help is-danger",
-              domProps: { textContent: _vm._s(_vm.errors.get("cite")) }
-            })
+            _vm.errors.has("cite")
+              ? _c("span", {
+                  staticClass: "help is-danger",
+                  domProps: { textContent: _vm._s(_vm.errors.get("cite")) }
+                })
+              : _vm._e()
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
@@ -49913,7 +49945,12 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { type: "date", id: "date", placeholder: "1667-02-02" },
+              attrs: {
+                type: "date",
+                id: "date",
+                placeholder: "1667-02-02",
+                name: "date"
+              },
               domProps: { value: _vm.date },
               on: {
                 input: function($event) {
@@ -49925,15 +49962,20 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            _c("span", {
-              staticClass: "help is-danger",
-              domProps: { textContent: _vm._s(_vm.errors.get("date")) }
-            })
+            _vm.errors.has("date")
+              ? _c("span", {
+                  staticClass: "help is-danger",
+                  domProps: { textContent: _vm._s(_vm.errors.get("date")) }
+                })
+              : _vm._e()
           ]),
           _vm._v(" "),
           _c(
             "button",
-            { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+            {
+              staticClass: "btn btn-primary",
+              attrs: { type: "submit", disabled: _vm.errors.any() }
+            },
             [_vm._v("Submit")]
           )
         ]
