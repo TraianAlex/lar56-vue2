@@ -49702,7 +49702,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__errors__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__errors_es6__ = __webpack_require__(91);
 //
 //
 //
@@ -49749,7 +49749,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             author: '',
             cite: '',
             date: '',
-            errors: new __WEBPACK_IMPORTED_MODULE_0__errors__["a" /* default */]()
+            errors: new __WEBPACK_IMPORTED_MODULE_0__errors_es6__["a" /* default */]()
         };
     },
 
@@ -49775,57 +49775,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 87 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Errors = function () {
-   function Errors() {
-      _classCallCheck(this, Errors);
-
-      this.errors = {};
-   }
-
-   _createClass(Errors, [{
-      key: 'get',
-      value: function get(field) {
-         if (this.errors[field]) {
-            return this.errors[field][0];
-         }
-         return '';
-      }
-   }, {
-      key: 'record',
-      value: function record(errors) {
-         this.errors = errors;
-      }
-   }, {
-      key: 'clear',
-      value: function clear(field) {
-         delete this.errors[field];
-      }
-   }, {
-      key: 'has',
-      value: function has(field) {
-         return this.errors.hasOwnProperty(field);
-      }
-   }, {
-      key: 'any',
-      value: function any() {
-         return Object.keys(this.errors).length > 0;
-      }
-   }]);
-
-   return Errors;
-}();
-
-/* harmony default export */ __webpack_exports__["a"] = (Errors);
-
-/***/ }),
+/* 87 */,
 /* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -50009,6 +49959,43 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 90 */,
+/* 91 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+class Errors {
+    constructor(){
+        this.errors = {}
+    }
+
+    get(field){
+        if(this.errors[field]){
+            return this.errors[field][0]
+        }
+        return '';
+    }
+
+    record(errors){
+        this.errors = errors;
+    }
+
+    clear(field){
+        delete this.errors[field];
+    }
+
+    has(field){
+        return this.errors.hasOwnProperty(field);
+    }
+    any(){
+        return Object.keys(this.errors).length > 0;
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Errors;
+
 
 /***/ })
 /******/ ]);

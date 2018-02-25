@@ -35,7 +35,7 @@
 </template>
 
 <script>
-    import Errors from './../errors'
+    import Errors from './../errors.es6'
 
     export default {
         props: ['method', 'url'],
