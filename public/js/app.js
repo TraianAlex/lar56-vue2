@@ -13971,7 +13971,7 @@ function toComment(sourceMap) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-module.exports = __webpack_require__(89);
+module.exports = __webpack_require__(90);
 
 
 /***/ }),
@@ -49658,7 +49658,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(86)
 /* template */
-var __vue_template__ = __webpack_require__(88)
+var __vue_template__ = __webpack_require__(89)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -49702,7 +49702,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__form_es6__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__form_es6__ = __webpack_require__(87);
 //
 //
 //
@@ -49781,14 +49781,118 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         onSubmit: function onSubmit() {
-            this.form.submit(this.method, this.url);
+            this.form.submit(this.method, this.url).then(function (data) {
+                return alert('handling it!');
+            }).catch(function (error) {
+                return alert('something went wrong!');
+            });
         }
     }
 });
 
 /***/ }),
-/* 87 */,
+/* 87 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__errors_es6__ = __webpack_require__(88);
+
+
+class Form {
+    constructor(data) {
+        this.originalData = data;
+        for (let field in data) {
+            this[field] = data[field];
+        }
+        this.errors = new __WEBPACK_IMPORTED_MODULE_0__errors_es6__["a" /* default */]()
+    }
+
+    data() {
+        let data = Object.assign({}, this);
+        delete data.originalData;
+        delete data.errors;
+
+        return data;
+    }
+
+    reset() {
+        for (let field in this.originalData) {
+            this[field] = '';
+        }
+        this.errors.clear();
+    }
+
+    submit(type, url) {
+        return new Promise((resolve, reject) => {
+            axios[type](url, this.data())
+                .then(response => {
+                    this.onSuccess(response.data);
+
+                    resolve(response.data);
+                })
+                .catch(error => {
+                    this.onFail(error.response.data.errors);
+
+                    reject(error.response.data);
+                });
+        });
+
+    }
+
+    onSuccess(data) {
+        alert(data.message);
+        this.reset();
+    }
+
+    onFail(errors) {
+        this.errors.record(errors);
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Form;
+
+
+/***/ }),
 /* 88 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+class Errors {
+    constructor(){
+        this.errors = {}
+    }
+
+    get(field){
+        if(this.errors[field]){
+            return this.errors[field][0]
+        }
+        return '';
+    }
+
+    record(errors){
+        this.errors = errors;
+    }
+
+    clear(field){
+        if(field) {
+            delete this.errors[field];
+            return;
+        }
+        this.errrors = {};
+    }
+
+    has(field){
+        return this.errors.hasOwnProperty(field);
+    }
+    any(){
+        return Object.keys(this.errors).length > 0;
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Errors;
+
+
+/***/ }),
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -49969,100 +50073,10 @@ if (false) {
 }
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 90 */,
-/* 91 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-class Errors {
-    constructor(){
-        this.errors = {}
-    }
-
-    get(field){
-        if(this.errors[field]){
-            return this.errors[field][0]
-        }
-        return '';
-    }
-
-    record(errors){
-        this.errors = errors;
-    }
-
-    clear(field){
-        if(field) {
-            delete this.errors[field];
-            return;
-        }
-        this.errrors = {};
-    }
-
-    has(field){
-        return this.errors.hasOwnProperty(field);
-    }
-    any(){
-        return Object.keys(this.errors).length > 0;
-    }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = Errors;
-
-
-/***/ }),
-/* 92 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__errors_es6__ = __webpack_require__(91);
-
-
-class Form {
-    constructor(data) {
-        this.originalData = data;
-        for (let field in data) {
-            this[field] = data[field];
-        }
-        this.errors = new __WEBPACK_IMPORTED_MODULE_0__errors_es6__["a" /* default */]()
-    }
-    data(){
-        let data = Object.assign({},this);
-        delete data.originalData;
-        delete data.errors;
-
-        return data;
-    }
-
-    reset() {
-        for(let field in this.originalData){
-            this[field]='';
-        }
-    }
-
-    submit(type, url){
-        axios[type](url, this.data())
-            .then(this.onSuccess.bind(this))
-            .catch(this.onFail.bind(this));
-    }
-
-    onSuccess(response){
-        alert(response.data.message);
-        this.errors.clear();
-        this.reset();
-    }
-
-    onFail(error){
-        this.errors.record(error.response.data.errors);
-    }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = Form;
-
 
 /***/ })
 /******/ ]);

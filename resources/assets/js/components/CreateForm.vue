@@ -75,7 +75,9 @@
         },
         methods: {
             onSubmit() {
-                this.form.submit(this.method, this.url);
+                this.form.submit(this.method, this.url)
+                    .then(data => alert('handling it!'))
+                    .catch(error => alert('something went wrong!'));
             }
         }
     }
