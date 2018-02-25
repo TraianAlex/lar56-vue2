@@ -10,9 +10,11 @@ export default class Form {
     }
 
     data() {
-        let data = Object.assign({}, this);
-        delete data.originalData;
-        delete data.errors;
+        let data = {};
+
+        for (let property in this.originalData) {
+            data[property] = this[property];
+        }
 
         return data;
     }
@@ -22,6 +24,14 @@ export default class Form {
             this[field] = '';
         }
         this.errors.clear();
+    }
+
+    post(url){
+        return this.submit('post', url);
+    }
+
+    delete(url){
+        return this.submit('delete',url);
     }
 
     submit(type, url) {
