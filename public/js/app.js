@@ -49998,7 +49998,10 @@ class Errors {
     }
 
     clear(field){
-        if(field) delete this.errors[field];
+        if(field) {
+            delete this.errors[field];
+            return;
+        }
         this.errrors = {};
     }
 
@@ -50051,6 +50054,7 @@ class Form {
     onSuccess(response){
         alert(response.data.message);
         this.errors.clear();
+        this.reset();
     }
 
     onFail(error){

@@ -31,6 +31,7 @@ export default class Form {
     onSuccess(response){
         alert(response.data.message);
         this.errors.clear();
+        this.reset();
     }
 
     onFail(error){
