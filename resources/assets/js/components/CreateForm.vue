@@ -32,7 +32,7 @@
 </template>
 
 <script>
-    import Errors from './../modules/errors'
+    import Errors from './../errors'
     export default {
         props: ['method', 'url'],
         data() {
@@ -51,7 +51,9 @@
                     date: this.date
                 })
                     .then(response => alert('Gibberish Created!'))
-                    .catch(error => this.errors.record(error.response.data));
+                    .catch(error => {
+                        this.errors.record(error.response.data.errors);
+                    });
             }
         }
     }
