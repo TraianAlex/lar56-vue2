@@ -49782,9 +49782,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         onSubmit: function onSubmit() {
             this.form.submit(this.method, this.url).then(function (data) {
-                return console.log(data);
+                return alert('handling it!');
             }).catch(function (error) {
-                return console.log(error);
+                return alert('something went wrong!');
             });
         }
     }
@@ -49808,11 +49808,9 @@ class Form {
     }
 
     data() {
-        let data = {};
-
-        for (let property in this.originalData) {
-            data[property] = this[property];
-        }
+        let data = Object.assign({}, this);
+        delete data.originalData;
+        delete data.errors;
 
         return data;
     }
@@ -49822,14 +49820,6 @@ class Form {
             this[field] = '';
         }
         this.errors.clear();
-    }
-
-    post(url){
-        return this.submit('post', url);
-    }
-
-    delete(url){
-        return this.submit('delete',url);
     }
 
     submit(type, url) {
