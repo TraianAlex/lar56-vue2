@@ -8,7 +8,7 @@
 </template>
 
 <script>
-
+    import shared from '../../state/shared';
 
     export default {
         data() {
@@ -16,9 +16,7 @@
                 private: {
                     count: 0
                 },
-                shared: {
-                    count: 0
-                }
+                shared: shared.state
             }
         },
     }

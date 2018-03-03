@@ -42,8 +42,9 @@ Vue.component('coupon', require('./components/Coupon.vue'));
 Vue.component('progress-view', require('./components/Progress.vue'));
 Vue.component('gibberish-table', require('./components/GibberishTable.vue'));
 Vue.component('create-form', require('./components/CreateForm.vue'));
-Vue.component('shared-one', require('./components/SharedOne.vue'));
-Vue.component('shared-two', require('./components/SharedTwo.vue'));
+Vue.component('shared-one', require('./components/shared/SharedOne.vue'));
+Vue.component('shared-two', require('./components/shared/SharedTwo.vue'));
+
 
 const app = new Vue({
     el: '#app',
