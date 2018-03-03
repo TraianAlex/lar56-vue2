@@ -7,27 +7,30 @@
                 <div class="card">
                     @include('gibberish.partials.header')
                     <tabs>
-                        <tab name="Playground">
+                        <tab name="First Steps">
                             @include('gibberish.partials.playground')
                         </tab>
-                        <tab name="The Gibber News">
+                        <tab name="Messeges">
                             @include('gibberish.partials.news')
                         </tab>
-                        <tab name="Coupon">
+                        <tab name="Event firing">
                             @include('gibberish.partials.coupon')
                         </tab>
 
-                        <tab name="Progress Page">
+                        <tab name="Dunamic binding">
                             @include('gibberish.partials.progress')
                         </tab>
 
-                        <tab name="Async">
+                        <tab name="Axios">
                             @include('gibberish.partials.axios')
                         </tab>
 
-                        <tab name="Shared state" selected="true">
+                        <tab name="Shared state">
                             @include('gibberish.partials.shared')
+                        </tab>
 
+                        <tab name="Custom input" selected="true">
+                            @include('gibberish.partials.custom')
                         </tab>
                     </tabs>
 

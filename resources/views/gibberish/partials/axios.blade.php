@@ -1,14 +1,8 @@
 <div :class="className">
     <div class="row">
         <div class="col-md-12">
-            <tabs :centered="true">
-                <tab name="All">
-                    <gibberish-table></gibberish-table>
-                </tab>
-                <tab name="Create" selected="true">
-                    <create-form method="post" url="/gibberish"></create-form>
-                </tab>
-            </tabs>
+            <gibberish-table></gibberish-table>
+            <create-form method="post" url="/gibberish"></create-form>
         </div>
     </div>
 </div>

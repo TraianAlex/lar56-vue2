@@ -44,6 +44,7 @@ Vue.component('gibberish-table', require('./components/GibberishTable.vue'));
 Vue.component('create-form', require('./components/CreateForm.vue'));
 Vue.component('shared-one', require('./components/shared/SharedOne.vue'));
 Vue.component('shared-two', require('./components/shared/SharedTwo.vue'));
+Vue.component('custom-input', require('./components/shared/CustomInput.vue'));
 
 
 const app = new Vue({
@@ -53,6 +54,7 @@ const app = new Vue({
         message: 'Hello World!',
         showModal: false,
         couponApplied: false,
+        coupon: 'FREEBEE'
     },
     computed: {
         className: function () {
