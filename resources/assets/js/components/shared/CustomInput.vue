@@ -19,7 +19,7 @@
         },
         methods: {
             updateCode(code){
-                if(this.invalids.include(code)){
+                if(this.invalids.includes(code)){
                     alert('sorry that coupon has expried!');
 
                     this.$refs.input.value = code = '';
