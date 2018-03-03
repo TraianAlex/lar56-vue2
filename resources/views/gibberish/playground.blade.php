@@ -21,8 +21,13 @@
                             @include('gibberish.partials.progress')
                         </tab>
 
-                        <tab name="Async" selected="true">
+                        <tab name="Async">
                             @include('gibberish.partials.axios')
+                        </tab>
+
+                        <tab name="Shared state" selected="true">
+                            @include('gibberish.partials.shared')
+
                         </tab>
                     </tabs>
 
