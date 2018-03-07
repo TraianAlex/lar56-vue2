@@ -29,8 +29,11 @@
                             @include('gibberish.partials.shared')
                         </tab>
 
-                        <tab name="Custom input" selected="true">
+                        <tab name="Custom input">
                             @include('gibberish.partials.custom')
+                        </tab>
+                        <tab name="Scoped slots" selected="true">
+                            @include('gibberish.partials.scoped')
                         </tab>
                     </tabs>
 

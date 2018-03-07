@@ -45,6 +45,7 @@ Vue.component('create-form', require('./components/CreateForm.vue'));
 Vue.component('shared-one', require('./components/shared/SharedOne.vue'));
 Vue.component('shared-two', require('./components/shared/SharedTwo.vue'));
 Vue.component('custom-input', require('./components/shared/CustomInput.vue'));
+Vue.component('scoped-slot', require('./components/shared/ScopedSlot'));
 
 
 const app = new Vue({
